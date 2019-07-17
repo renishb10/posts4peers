@@ -1,0 +1,49 @@
+{
+  "name": "posts4peers_core_api_service",
+  "version": "1.0.0",
+  "description": "Service that expose APIs for handling 'Post' creation, listing & manipulation based on user's interest",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "mocha test/**/*.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renishb10/posts4peers.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "mongodb",
+    "mocha",
+    "chai",
+    "renishb"
+  ],
+  "author": "Renish Bhaskaran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renishb10/posts4peers/issues"
+  },
+  "homepage": "https://github.com/renishb10/posts4peers#readme",
+  "dependencies": {
+    "argv-parser": "^0.1.4",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.6.3",
+    "swagger-ui-express": "^4.0.7",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
+  }
+}
