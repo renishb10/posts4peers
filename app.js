@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
-const swaggerUi = require('swagger-ui-express');
+// const swaggerUi = require('swagger-ui-express');
 // const swaggerDocument = require('./swagger.json');
 
 // Custom dependency.
@@ -34,6 +34,8 @@ app.use(cors());
 // Routing middlewares
 app.use('/', routes.index);
 app.use(`${config.apiBasePath}/posts`, routes.posts);
+app.use(`${config.apiBasePath}/users`, routes.users);
+app.use(`${config.apiBasePath}/tags`, routes.tags);
 
 // Listener
 app.listen(process.env.PORT || config.port, () => {

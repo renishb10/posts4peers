@@ -5,7 +5,7 @@ const router = require('express').Router();
 ///////////////////////////////////////////////////////////////
 router.get('/', async (req, res, next) => {
   try {
-    res.json({ message: 'Posts' });
+    res.json({ message: 'Users' });
   } catch (e) {
     res.status(404).send({ status: 'error', message: e.message });
   }
