@@ -23,7 +23,7 @@ const postModel = new Schema({
   ],
   type: {
     type: String,
-    required: true,
+    default: 'normal',
   },
   createdAt: {
     type: Date,

@@ -21,6 +21,10 @@ const config = {
     options: { useNewUrlParser: true },
   },
   apiBasePath: '/api/v1',
+  auth: {
+    jwtKey: process.env.JWT_SECRET,
+    jwtExpiresIn: process.env.JWT_EXPIRES_IN,
+  },
 };
 
 if (envName === 'prod') {

@@ -10,6 +10,16 @@ const createPost = async post => {
     });
 };
 
+const getPosts = async () => {
+  return await Post.find({})
+    .then(p => {
+      return p;
+    })
+    .catch(e => {
+      throw e;
+    });
+};
+
 const getPostsByAuthorId = async authorId => {
   return await Post.find({
     authorId: authorId,
@@ -24,5 +34,6 @@ const getPostsByAuthorId = async authorId => {
 
 module.exports = {
   createPost,
+  getPosts,
   getPostsByAuthorId,
 };

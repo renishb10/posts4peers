@@ -1,4 +1,5 @@
 const mongoose = require('../data/db')();
+const bcrypt = require('bcrypt');
 
 const { Schema } = mongoose;
 
@@ -19,6 +20,11 @@ const userModel = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  isSuperAuthor: {
+    // TODO: Better to have role array ['author', 'superAuthor'] for scalability
+    type: Boolean,
+    default: false,
   },
   following: [
     {
@@ -55,11 +61,15 @@ userModel.pre('save', function (next) {
   if (!this.isModified('password')) {
     return next();
   }
-  this.password = '***Hashed Password***';
+  const salt = bcrypt.genSaltSync();
+  this.password = bcrypt.hashSync(this.password, salt);
   next();
 });
 
+userModel.methods.comparePasswords = (encodedPassword, password) => bcrypt.compareSync(password, encodedPassword);
+
 // Indexing goes here
 userModel.index({ email: 1 });
+userModel.index({ firstName: 1, lastName: 1 });
 
 module.exports = mongoose.model('User', userModel);
