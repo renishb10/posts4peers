@@ -14,7 +14,16 @@ const createTag = async name => {
 const getTags = async () => {
   return await Tag.find({})
     .then(t => {
-      console.log(t);
+      return t;
+    })
+    .catch(e => {
+      throw e;
+    });
+};
+
+const getTagById = async tagId => {
+  return await Tag.findById(tagId)
+    .then(t => {
       return t;
     })
     .catch(e => {
@@ -39,5 +48,6 @@ const searchTags = async key => {
 module.exports = {
   createTag,
   getTags,
+  getTagById,
   searchTags,
 };

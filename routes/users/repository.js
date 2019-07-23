@@ -10,6 +10,18 @@ const getUserByEmail = async email => {
     });
 };
 
+// Note: this excludes password field
+const getUserById = async userId => {
+  return await User.findOne({ _id: userId }, { password: 0 })
+    .then(u => {
+      console.log(userId, u);
+      return u;
+    })
+    .catch(e => {
+      throw e;
+    });
+};
+
 const createUser = async user => {
   return await User.create(user)
     .then(u => {
@@ -21,6 +33,7 @@ const createUser = async user => {
 };
 
 module.exports = {
+  getUserById,
   getUserByEmail,
   createUser,
 };
