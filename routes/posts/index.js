@@ -40,7 +40,7 @@ router.post('/', auth.authenticate(), async (req, res, next) => {
 ///////////////////////////////////////////////////////////////
 /// GET user feeds (TODO: pagination & admin authorization)
 ///////////////////////////////////////////////////////////////
-router.get('/feeds', async (req, res, next) => {
+router.get('/feeds', auth.authenticate(), async (req, res, next) => {
   try {
     const userId = req.user.id;
     const skip = req.query.skip ? req.query.skip : 0;
