@@ -42,7 +42,7 @@ router.post('/', auth.authenticate(), async (req, res, next) => {
 ///////////////////////////////////////////////////////////////
 router.get('/feeds', async (req, res, next) => {
   try {
-    const userId = '5d326dabc5cc06556cb7ac54'; // req.user.id;
+    const userId = req.user.id;
     const skip = req.query.skip ? req.query.skip : 0;
     const limit = req.query.limit ? req.query.limit : 0;
     const feeds = await getUserFeeds(userId, skip, limit);

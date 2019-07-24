@@ -184,7 +184,6 @@ router.patch(
 
             // Ingest the tag to following slot of user tag list
             const result = await followTag(user, tagId);
-            console.log('result', result);
             res.json(result);
           });
         })

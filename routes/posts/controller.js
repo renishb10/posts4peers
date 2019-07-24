@@ -22,7 +22,6 @@ const getUserFeeds = async (userId, skip, limit) => {
       limit,
     );
     const superAuthorPosts = await getSuperAuthorPosts();
-    console.log('uPost', userInterestPosts);
     while (userInterestPosts.length > 0 || superAuthorPosts.length > 0) {
       if (userInterestPosts.length >= 2) {
         feeds.push(...userInterestPosts.splice(0, 2));
