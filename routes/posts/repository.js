@@ -22,7 +22,7 @@ const getPosts = async () => {
 
 const getPostsByAuthorId = async authorId => {
   return await Post.find({
-    authorId: authorId,
+    author: authorId,
   })
     .then(p => {
       return p;
