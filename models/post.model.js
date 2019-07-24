@@ -40,5 +40,6 @@ const postModel = new Schema({
 // Indexing goes here
 postModel.index({ title: 1 });
 postModel.index({ author: 1 });
+postModel.index({ tags: 1 });
 
 module.exports = mongoose.model('Post', postModel);

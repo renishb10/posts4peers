@@ -5,7 +5,6 @@ const {
   isUsrSignUpPayloadValid,
   isUsrSignInPayloadValid,
 } = require('./validator');
-const { getUserByEmail, createUser, getUserById } = require('./repository');
 const {
   getJwtUserToken,
   handleFollowing,
@@ -15,6 +14,7 @@ const {
   unFollowTag,
 } = require('./controller');
 const auth = require('../../middlewares/auth');
+const { getUserByEmail, createUser, getUserById } = require('./repository');
 
 ///////////////////////////////////////////////////////////////
 /// Signup a user

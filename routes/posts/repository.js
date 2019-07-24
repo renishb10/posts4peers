@@ -32,8 +32,67 @@ const getPostsByAuthorId = async authorId => {
     });
 };
 
+const getPostsByMultipleAuthorId = async authorIds => {
+  return await Post.find({
+    author: {
+      $in: authorIds,
+    },
+  })
+    .then(p => {
+      return p;
+    })
+    .catch(e => {
+      throw e;
+    });
+};
+
+const getPostsByTags = async tags => {
+  return await Post.find({
+    tags: {
+      $in: tags,
+    },
+  })
+    .then(p => {
+      return p;
+    })
+    .catch(e => {
+      throw e;
+    });
+};
+
+const getPostsByInterests = async (tags, followings, skip = 0, limit = 10) => {
+  skip = parseInt(skip);
+  limit = parseInt(limit);
+  return await Post.find({
+    $or: [
+      {
+        tags: {
+          $in: tags,
+        },
+      },
+      {
+        author: {
+          $in: followings,
+        },
+      },
+    ],
+  })
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(limit)
+    .then(p => {
+      return p;
+    })
+    .catch(e => {
+      throw e;
+    });
+};
+
 module.exports = {
   createPost,
   getPosts,
   getPostsByAuthorId,
+  getPostsByMultipleAuthorId,
+  getPostsByTags,
+  getPostsByInterests,
 };
