@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "2de837e6-64c1-48dc-a849-78c7e2f84c71",
+		"name": "Posts4Peers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"John\",\n\t\"lastName\": \"Baker\",\n\t\"email\": \"baker@gmail.com\",\n\t\"password\": \"abc123\",\n\t\"isSuperAuthor\": true\n}"
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/users/signup",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"vmunde@peerlyst.com\",\n\t\"password\": \"password123\"\n}"
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/users/signin",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Tag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Node.js\"\n}"
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/tags",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tags",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Node.js\"\n}"
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/tags",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzg0M2FkOTlmNmVlMDAxNzk2OTVjYyIsImVtYWlsIjoicmVuaXNoYjEwQGdtYWlsLmNvbSIsImlzU3VwZXJBdXRob3IiOmZhbHNlLCJpYXQiOjE1NjM5Njk2MDksImV4cCI6MTU2Mzk2OTY5NX0.fzCbs-NuPHrE_ae3Mzm9Eb3URbTFQTz16sh4ZJUs764",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Sequelize relationships — Ultimate guide\",\n\t\"body\": \"A few weeks ago I started developing web applications with Node.JS and Express. This framework if you can call it that and very disconcerting at first, especially for a developer like me who has been studying with Ruby on Rails. But after several weeks of use, I realized that Node.JS is Express are wonderful...\",\n\t\"tags\":[\"5d3841ea99f6ee00179695c2\",\"5d38431f99f6ee00179695c6\"]\n}"
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/posts/",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Sequelize relationships — Ultimate guide\",\n\t\"body\": \"A few weeks ago I started developing web applications with Node.JS and Express. This framework if you can call it that and very disconcerting at first, especially for a developer like me who has been studying with Ruby on Rails. But after several weeks of use, I realized that Node.JS is Express are wonderful...\"\n}"
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/posts/",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Follow User",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzg0NzM5OTlmNmVlMDAxNzk2OTVjZCIsImVtYWlsIjoidm11bmRlQHBlZXJseXN0LmNvbSIsImlzU3VwZXJBdXRob3IiOmZhbHNlLCJpYXQiOjE1NjM5NzMxNjUsImV4cCI6MTU2Mzk3MzI1MX0.oE-1FtWuTAP3Pp1ay3qeXLBVmjfU7GRcf_mPXw_y89w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/users/follow/5d3843ad99f6ee00179695cc",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"follow",
+						"5d3843ad99f6ee00179695cc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unfollow User",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzg0NzM5OTlmNmVlMDAxNzk2OTVjZCIsImVtYWlsIjoidm11bmRlQHBlZXJseXN0LmNvbSIsImlzU3VwZXJBdXRob3IiOmZhbHNlLCJpYXQiOjE1NjM5NzMxNjUsImV4cCI6MTU2Mzk3MzI1MX0.oE-1FtWuTAP3Pp1ay3qeXLBVmjfU7GRcf_mPXw_y89w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/users/unfollow/5d3843ad99f6ee00179695cc",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"unfollow",
+						"5d3843ad99f6ee00179695cc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Follow Tag",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzg0NzM5OTlmNmVlMDAxNzk2OTVjZCIsImVtYWlsIjoidm11bmRlQHBlZXJseXN0LmNvbSIsImlzU3VwZXJBdXRob3IiOmZhbHNlLCJpYXQiOjE1NjM5NzMzOTEsImV4cCI6MTU2Mzk3MzQ3N30.OSWk_WFDSkNBB_8f3YDrqHAd1q1vhWg6rBhXm7KcdqU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/users/tag/5d38431899f6ee00179695c5/follow",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"tag",
+						"5d38431899f6ee00179695c5",
+						"follow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unfollow Tag",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzg0NzM5OTlmNmVlMDAxNzk2OTVjZCIsImVtYWlsIjoidm11bmRlQHBlZXJseXN0LmNvbSIsImlzU3VwZXJBdXRob3IiOmZhbHNlLCJpYXQiOjE1NjM5NzMzOTEsImV4cCI6MTU2Mzk3MzQ3N30.OSWk_WFDSkNBB_8f3YDrqHAd1q1vhWg6rBhXm7KcdqU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/users/tag/5d38432499f6ee00179695c7/unfollow",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"tag",
+						"5d38432499f6ee00179695c7",
+						"unfollow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Feeds",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzI2ZGFiYzVjYzA2NTU2Y2I3YWM1NCIsImVtYWlsIjoicmVuaXNoYjEwQGdtYWlsLmNvbSIsImlzU3VwZXJBdXRob3IiOmZhbHNlLCJpYXQiOjE1NjM5NjY1MjEsImV4cCI6MTU2Mzk2NjYwN30.uN7BwUk2123TNpFlRW0Q8CTJgQzgTcVYWOmCvOl_PIY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Something part 3\",\n\t\"body\": \"A few weeks ago I started developing web applications with Node.JS and Express. This framework if you can call it that and very disconcerting at first, especially for a developer like me who has been studying with Ruby on Rails. But after several weeks of use, I realized that Node.JS is Express are wonderful...\",\n\t\"tags\": [\"5d319bd39f1a78340c64a743\"]\n}"
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/posts/feeds",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"feeds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Feeds with Pagination",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkMzg0NzM5OTlmNmVlMDAxNzk2OTVjZCIsImVtYWlsIjoidm11bmRlQHBlZXJseXN0LmNvbSIsImlzU3VwZXJBdXRob3IiOmZhbHNlLCJpYXQiOjE1NjM5NzUxNjYsImV4cCI6MTU2Mzk3NTI1Mn0.kpq5z9VEbT4M1nWP4VsXoXMVSEDEYXL-eh-uZ-tUL_Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://posts4peers.herokuapp.com/api/v1/posts/feeds?limit=4&skip=0",
+					"protocol": "https",
+					"host": [
+						"posts4peers",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"feeds"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "4"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
