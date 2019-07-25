@@ -35,7 +35,21 @@ const getUsersByType = async (isSuperAuthor = false) => {
 const createUser = async user => {
   return await User.create(user)
     .then(u => {
-      return u;
+      // Temp work around
+      //delete u.password;
+      const result = {
+        _id: u._id,
+        firstName: u.firstName,
+        lastName: u.lastName,
+        email: u.email,
+        isSuperAuthor: u.isSuperAuthor,
+        following: u.following,
+        followers: u.followers,
+        tags: u.tags,
+        createdAt: u.createdAt,
+        updatedAt: u.updatedAt,
+      };
+      return result;
     })
     .catch(e => {
       throw e;

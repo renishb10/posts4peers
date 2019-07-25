@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
-// const swaggerUi = require('swagger-ui-express');
-// const swaggerDocument = require('./swagger.json');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 // Custom dependency.
 const config = require('./configs');
@@ -34,11 +34,11 @@ app.use(
 app.use(auth.initialize());
 
 // Swagger Documentation
-// app.use(
-//   '/api-doc',
-//   swaggerUi.serve,
-//   swaggerUi.setup(swaggerDocument, { explorer: true }),
-// );
+app.use(
+  '/api-doc',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument, { explorer: true }),
+);
 
 // Routing middlewares
 app.use('/', routes.index);

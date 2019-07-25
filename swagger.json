@@ -1,0 +1,396 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Posts4Peers Documentation",
+    "description": "Posts4Peers Core API service"
+  },
+  "host": "posts4peers.herokuapp.com",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "users",
+      "description": "Handles login and user followership"
+    },
+    {
+      "name": "tags",
+      "description": "Handles tags creation & manipulation"
+    },
+    {
+      "name": "posts",
+      "description": "Handles posts fetching and feeds"
+    }
+  ],
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/users/signup": {
+      "post": {
+        "tags": ["users"],
+        "description": "Create a new user",
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Register object",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/users/signin": {
+      "post": {
+        "tags": ["users"],
+        "description": "Authenticates the user",
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Login object",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/tags": {
+      "post": {
+        "tags": ["tags"],
+        "description": "Create new tag",
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Tag object",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      },
+      "get": {
+        "tags": ["tags"],
+        "description": "Get the list of tags",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/posts": {
+      "post": {
+        "tags": ["posts"],
+        "description": "Create new Posts",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer {token}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Post object",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      },
+      "get": {
+        "tags": ["posts"],
+        "description": "Get the list of posts",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer {token}",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/users/follow/{id}": {
+      "patch": {
+        "tags": ["users"],
+        "description": "Follow a user",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer {token}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "description": "User Id to be followed",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/users/unfollow/{id}": {
+      "patch": {
+        "tags": ["users"],
+        "description": "Unfollow a user",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer {token}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "description": "User Id to be unfollowed",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/users/tag/{id}/follow": {
+      "patch": {
+        "tags": ["users"],
+        "description": "Follow a tag",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer {token}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "description": "Tag Id to be followed",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/users/tag/{id}/unfollow": {
+      "patch": {
+        "tags": ["users"],
+        "description": "Unfollow a tag",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer {token}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "description": "Tag Id to be unfollowed",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/posts/feeds": {
+      "get": {
+        "tags": ["posts"],
+        "description": "Get user posts based on his interest",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer {token}",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "description": "Number of posts to be fetched",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "skip",
+            "description": "Number of posts to be skipped",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "Post": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "format": "string"
+        },
+        "body": {
+          "type": "string",
+          "format": "string"
+        },
+        "type": {
+          "type": "string",
+          "default": "normal"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TagId"
+          }
+        }
+      }
+    },
+    "Login": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "string"
+        },
+        "password": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "Register": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "format": "string"
+        },
+        "lastName": {
+          "type": "string",
+          "format": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "string"
+        },
+        "password": {
+          "type": "string",
+          "format": "string"
+        },
+        "isSuperAuthor": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "TagId": {
+      "type": "string"
+    }
+  }
+}
